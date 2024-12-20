@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package user_service;
+
+message UserInfoByTokenRequest {
+    string token = 1;
+}
+
+message UserInfoResponse {
+    string id = 1;
+    string name = 2;
+    repeated string roles = 3;
+}
+
+service User {
+    rpc GetUserInfoByToken(UserInfoByTokenRequest) returns (UserInfoResponse);
+}

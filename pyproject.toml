@@ -1,0 +1,63 @@
+[tool.black]
+line-length = 114
+preview = true
+include = '\.py$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | venv
+  | .venv
+  | env
+  | .env
+  | _build
+  | buck-out
+  | build
+  | dist
+  | setup.cfg
+)/
+'''
+
+[tool.isort]
+profile = 'black'
+[tool.poetry]
+name = "auth-service"
+version = "0.1.0"
+description = ""
+authors = ["shams <shamsimomnazarovYT@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+alembic = "^1.13.3"
+fastapi = "^0.115.0"
+sqlalchemy = "^2.0.35"
+redis = "^5.1.0"
+uvicorn = "^0.31.0"
+werkzeug = "^3.0.4"
+pyjwt = "^2.9.0"
+yandex-oauth = "^1.1.2"
+starlette-admin = "^0.14.1"
+pydantic-settings = "^2.5.2"
+pydantic = {extras = ["email"], version = "^2.9.2"}
+asyncpg = "^0.29.0"
+grpcio = "^1.68.1"
+grpcio-tools = "^1.68.1"
+greenlet = "^3.1.1"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.8.0"
+
+
+[tool.poetry.group.test.dependencies]
+aiohttp = "^3.10.8"
+tenacity = "^9.0.0"
+psycopg = "^3.2.3"
+pytest-asyncio = "^0.24.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
